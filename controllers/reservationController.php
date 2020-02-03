@@ -24,12 +24,12 @@ class reservationController {
 
     public function reservation() {
         Utils::isAdminOrEmployee();
-        $day = date('d/m/Y');
+        $day = date('Y-m-d');
         $site_id = NULL;
         if (isset($_POST)) {
             if (!empty($_POST['search'])) {
                 $daym = $_POST['search'];
-                $day = date('d/m/Y', strtotime($daym));
+                $day = date('Y-m-d', strtotime($daym));
             }
             if (!empty($_POST['site'])) {
                 $site_id = $_POST['site'];
@@ -49,12 +49,13 @@ class reservationController {
             $id_site = isset($_POST['site']) ? $_POST['site'] : FALSE;
             $people = isset($_POST['people']) ? $_POST['people'] : FALSE;
             $reason = isset($_POST['reason']) ? $_POST['reason'] : FALSE;
-            $date_reserve = !empty($_POST['date_reserve']) ? date("d/m/Y", strtotime($_POST['date_reserve'])) : FALSE;
+            $date_reserve = !empty($_POST['date_reserve']) ? date('Y-m-d', strtotime($_POST['date_reserve'])) : FALSE;
             $time_reserve = isset($_POST['time_reserve']) ? date('g:ia', strtotime($_POST['time_reserve'])) : FALSE;
             $note = !empty($_POST['note']) ?  ucfirst($_POST['note']) : "";
             $id_author = $_SESSION['user']->id;
-            //VALIDAMOS LOS DATOS RECIBIDOS
+            //VALIDAMOS LOS DATOS RECIBIDOS 
             $errors = array();
+           
             if (!empty($people)) {
                 $people_validado = true;
             } else {
@@ -69,7 +70,8 @@ class reservationController {
             }
 //            var_dump($date_reserve, date('d/m/Y '), date('g:ia'));
 //            die();
-            if ($date_reserve >= date('d/m/Y')) {
+//             var_dump( $date_reserve, date('Y-m-d'));die();
+            if ($date_reserve >= date('Y-m-d')) {
                 $date_validado = true;
             } else {
                 $date_validado = false;
@@ -130,13 +132,13 @@ class reservationController {
     }
 
     public function update() {
+        
         if (isset($_GET['id'])) {
             $id = $_GET['id'];
             $reserve = new reserve();
             $reserve->setId($id);
             $reserve = $reserve->getReserveForId();
         }
-
         require_once 'views/reservation/reserve.php';
     }
 

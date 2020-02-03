@@ -7,7 +7,7 @@
     <div class="col-12 col-md-6 d-flex justify-content-center justify-content-md-start flex-wrap">
         <a href="<?= base_url ?>user/allEmployee" class="btn btn-warning w-auto mx-1">Empleados</a>
         <a href="<?= base_url ?>user/allUser" class="btn btn-warning w-auto mx-1">Clientes</a>
-        <a href="<?= base_url ?>user/signin&new" class="btn btn-warning w-auto  mx-1">Nuevo usuario </a>
+        <a href="<?= base_url ?>user/update&new" class="btn btn-warning w-auto  mx-1">Nuevo usuario </a>
     </div>
     <div class="col-12 col-md-4 d-flex justify-content-center justify-content-md-end mt-2 mt-md-0">
         

@@ -3,7 +3,7 @@
         <div class="col-6 d-flex justify-content-start">
             <?php if (isset($day)): ?>
                 <?php
-                if ($day == date('d/m/Y')) {
+                if ($day == date('Y-m-d')) {
                     $dateshow = 'hoy';
                 } else {
                     $dateshow = $day;
@@ -17,7 +17,7 @@
         <?php if (isset($_SESSION['admin']) || isset($_SESSION['employee'])): ?>
             <div class="col-6 d-flex justify-content-end">
                 <form action="<?= base_url ?>reservation/reservation" method="post" class="form-inline">
-                    <div class="form-group">
+                    <div class="form-group mr-1">
                         <?php $sites = Utils::getSites(); ?>
                         <select name="site"  class="form-control" >
                             <option value="" selected="">Elige sitio</option>
@@ -26,10 +26,10 @@
                             <?php endwhile; ?>
                         </select>
                     </div>
-                    <div class="form-group date">
-                        <input type="date" class="form-control" value=""  name="search" >
-
+                    <div class="form-group mr-1 " id="box" >
+                        <input id="datepicker" type="text" class="form-control" value="<?= date('Y-m-d') ?>" name="search" required>
                     </div>
+
                     <input type="submit" value="Buscar" class="btn btn-info">
                 </form>
                 <!--            <a class="btn btn-info m-2 w-25">Prev</a>
@@ -41,6 +41,7 @@
     <div class="row justify-content-around w-100 m-0 border-top mt-3">
         <?php if ($reservations->num_rows == 0): ?>
             <h1>No hay datos para mostrar :(</h1>
+
         <?php endif; ?>
         <?php while ($reserve = $reservations->fetch_object()): ?>
             <?php
@@ -64,7 +65,7 @@
                             <p class="card-text m-0"> <?= $user->email ?></p>
                             <p class="card-text m-0"><?= $reserve->people ?> personas | <?= $reserve->reason ?></p>
                             <p class="card-text m-0"><?= $reserve->note ?></p>
-                            <a href="<?=base_url?>user/profile&id=<?=$reserve->id_author?>" class="btn card-text m-0 text-success p-0">Autor</a>
+                            <a href="<?= base_url ?>user/profile&id=<?= $reserve->id_author ?>" class="btn card-text m-0 text-success p-0">Autor</a>
 
                             <div class="d-flex justify-content-end col-12 w-100 p-0">
                                 <a href="<?= base_url ?>reservation/update&id=<?= $reserve->id ?>" class="btn btn-info btn-sm w-50 m-2 px-1 <?= $dis ?>">Editar</a>
@@ -73,7 +74,7 @@
                         </div>
                         <?php if ($reserve->status !== 'active'): ?>
                             <div class="position-absolute rounded" style= "right:5px;top:10px;">
-                                <span class="bg-danger p-1 rounded" ><?=$reserve->status?></span>
+                                <span class="bg-danger p-1 rounded" ><?= $reserve->status ?></span>
                             </div>
                         <?php endif; ?>
                     </div>
@@ -86,3 +87,13 @@
 <?php
 Utils::DeleteSession('completed');
 ?>
+<script>
+    $('#datepicker').datepicker({
+        format: 'yyyy-mm-dd',
+        todayHighlight: true,
+        autoclose: true,
+        container: '#box',
+        orientation: 'top right'
+
+    }).datepicker('update', new Date());
+</script>

@@ -18,7 +18,7 @@
         </div>
         <?php if (isset($_SESSION['admin']) || $user->id == $_SESSION['user']->id): ?>
             <div class="card-footer d-flex justify-content-around">
-                <a href="<?= base_url ?>user/update&id=<?= $user->id ?>" class="btn btn-warning w-50 mx-1"> Editar perfil</a>
+                <a href="<?= base_url ?>user/update<?= $getid ?>" class="btn btn-warning w-50 mx-1"> Editar perfil</a>
             </div>
         <?php endif; ?>
     </div>

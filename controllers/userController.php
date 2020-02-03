@@ -82,7 +82,7 @@ class userController {
                 header('location: ' . base_url . 'user/allUser');
             } else {
                 $_SESSION['error'] = $errors;
-                header('location: ' . base_url . 'user/signin');
+                header('location: ' . base_url . 'user/update&new');
             }
         } else {
             $_SESSION['error']['general'] = 'Error al enviar datos';
@@ -140,8 +140,10 @@ class userController {
         if (isset($_GET['id'])) {
             $id = $_GET['id'];
             $user = Utils::getUser($id);
+            $getid = '&id='.$id;
         } else {
             $user = $_SESSION['user'];
+            $getid = '';
         }
 //        var_dump($user); die();
         $photo = $user->photo;
@@ -152,17 +154,43 @@ class userController {
         if (isset($_GET['id'])) {
             $id = $_GET['id'];
         }
-        Utils::isAdminOrUseroOne($id);
+        if (isset($_SESSION['user']) && !isset($id) && !isset($_GET['new'])) {
+            $title = 'Editar mi perfil';
+            $text = 'Por favor ingrese datos nuevos para modificarlos';
+            $dir = base_url . 'user/saveUpdate';
+            $id_user = $_SESSION['user']->id;
+        } 
+        if (isset($_SESSION['admin']) || isset($_SESSION['employee'])) {
+            if (isset($_GET['new'])) {
+                $title = 'Registrar nuevo usuario';
+                $text = 'Por favor ingrese datos para Regsitrar';
+                $dir = base_url . 'user/save';
+                $id_user = NULL;
+            }
+        } 
+        if (isset($id)) {
+            $title = 'Editar usuario';
+            $text = 'Por favor cambie datos a modificar';
+            $user = Utils::getUser($id);
+            $dir = base_url . 'user/saveUpdate';
+            $id_user = $user->id;
+        } 
+        if(!isset($_SESSION['user'])) {
+            $title = 'Registrarse';
+            $text = 'Por favor ingrese datos para Regsitrarse';
+            $dir = base_url . 'user/save';
+        }
         require_once 'views/users/signin.php';
     }
 
     function saveUpdate() {
+        
         if (isset($_POST)) {
             $id = isset($_POST['id']) ? $_POST['id'] : FALSE;
             $name = isset($_POST['name']) ? $_POST['name'] : FALSE;
             $email = isset($_POST['email']) ? $_POST['email'] : FALSE;
             $phone = isset($_POST['phone']) ? $_POST['phone'] : FALSE;
-            $rol = isset($_POST['rol']) ? $_POST['rol'] : 'user';
+            $rol = isset($_POST['rol']) ? $_POST['rol'] : NULL;
 
 //            var_dump($_FILES, $_POST); die();s
             //validamos datos

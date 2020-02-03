@@ -50,34 +50,34 @@ if (isset($reserve)) {
                             <?php endwhile; ?>
                         </select>
                     </div>
-                    <div class="form-group col-12 date  col-md-6 " id="box" data-date-format="dd-mm-yyyy">
+                    <div class="form-group col-12 date  col-md-6 " id="box" >
                         <label for="datepicker">Dia de reserva:</label>
-                        <input id="datepicker" type="text" class="form-control" value="<?= date('Y-m-d') ?>" name="datepicker" required>
+                        <input id="datepicker" type="text" class="form-control" value="<?= date('Y-m-d') ?>" name="date_reserve" required>
                     </div>
                     <div class="form-group col-12  col-md-6">
                         <label for="time_reserve">Hora de reserva:</label>
                         <select name="time_reserve"  class="form-control" required="">
-                            <option value="11:00" <?= isset($reserve) && $reserve->reservation_time == '11:00' ? 'selected' : '' ?>>11:00 am</option>
-                            <option value="11:30" <?= isset($reserve) && $reserve->reservation_time == '11:00' ? 'selected' : '' ?>>11:30 am</option>
-                            <option value="12:00" <?= isset($reserve) && $reserve->reservation_time == '11:00' ? 'selected' : '' ?>>12:00 pm</option>
-                            <option value="12:30" <?= isset($reserve) && $reserve->reservation_time == '11:00' ? 'selected' : '' ?>>12:30 pm</option>
-                            <option value="13:00" <?= isset($reserve) && $reserve->reservation_time == '11:00' ? 'selected' : '' ?>>1:00 pm</option>
-                            <option value="13:30" <?= isset($reserve) && $reserve->reservation_time == '11:00' ? 'selected' : '' ?>>1:30 pm</option>
-                            <option value="14:00" <?= isset($reserve) && $reserve->reservation_time == '11:00' ? 'selected' : '' ?>>2:00 pm</option>
-                            <option value="14:30" <?= isset($reserve) && $reserve->reservation_time == '11:00' ? 'selected' : '' ?>>2:30 pm</option>
-                            <option value="15:00" <?= isset($reserve) && $reserve->reservation_time == '11:00' ? 'selected' : '' ?>>3:00 pm</option>
-                            <option value="15:30" <?= isset($reserve) && $reserve->reservation_time == '11:00' ? 'selected' : '' ?>>3:30 pm</option>
-                            <option value="16:00" <?= isset($reserve) && $reserve->reservation_time == '11:00' ? 'selected' : '' ?>>4:00 pm</option>
-                            <option value="16:30" <?= isset($reserve) && $reserve->reservation_time == '11:00' ? 'selected' : '' ?>>4:30 pm</option>
-                            <option value="17:00" <?= isset($reserve) && $reserve->reservation_time == '11:00' ? 'selected' : '' ?>>5:00 pm</option>
-                            <option value="17:30" <?= isset($reserve) && $reserve->reservation_time == '11:00' ? 'selected' : '' ?>>5:30 pm</option>
-                            <option value="18:00" <?= isset($reserve) && $reserve->reservation_time == '11:00' ? 'selected' : '' ?>>6:00 pm</option>
-                            <option value="18:30" <?= isset($reserve) && $reserve->reservation_time == '11:00' ? 'selected' : '' ?>>6:30 pm</option>
-                            <option value="19:00" <?= isset($reserve) && $reserve->reservation_time == '11:00' ? 'selected' : '' ?>>7:00 pm</option>
-                            <option value="19:30" <?= isset($reserve) && $reserve->reservation_time == '11:00' ? 'selected' : '' ?>>7:30 pm</option>
-                            <option value="20:00" <?= isset($reserve) && $reserve->reservation_time == '11:00' ? 'selected' : '' ?>>8:00 pm</option>
-                            <option value="20:30" <?= isset($reserve) && $reserve->reservation_time == '11:00' ? 'selected' : '' ?>>8:30 pm</option>
-                            <option value="21:00" <?= isset($reserve) && $reserve->reservation_time == '11:00' ? 'selected' : '' ?>>9:00 pm</option>
+                            <option value="11:00am" <?= isset($reserve) && $reserve->reservation_time == '11:00am' ? 'selected' : '' ?>>11:00 am</option>
+                            <option value="11:30am" <?= isset($reserve) && $reserve->reservation_time == '11:30a,' ? 'selected' : '' ?>>11:30 am</option>
+                            <option value="12:00pm" <?= isset($reserve) && $reserve->reservation_time == '12:00pm' ? 'selected' : '' ?>>12:00 pm</option>
+                            <option value="12:30pm" <?= isset($reserve) && $reserve->reservation_time == '12:30pm' ? 'selected' : '' ?>>12:30 pm</option>
+                            <option value="1:00pm" <?= isset($reserve) && $reserve->reservation_time == '1:00pm' ? 'selected' : '' ?>>1:00 pm</option>
+                            <option value="1:30pm" <?= isset($reserve) && $reserve->reservation_time == '1:30pm' ? 'selected' : '' ?>>1:30 pm</option>
+                            <option value="2:00pm" <?= isset($reserve) && $reserve->reservation_time == '2:00pm' ? 'selected' : '' ?>>2:00 pm</option>
+                            <option value="2:30pm" <?= isset($reserve) && $reserve->reservation_time == '2:30pm' ? 'selected' : '' ?>>2:30 pm</option>
+                            <option value="3:00pm" <?= isset($reserve) && $reserve->reservation_time == '3:00pm' ? 'selected' : '' ?>>3:00 pm</option>
+                            <option value="3:30pm" <?= isset($reserve) && $reserve->reservation_time == '3:30pm' ? 'selected' : '' ?>>3:30 pm</option>
+                            <option value="4:00pm" <?= isset($reserve) && $reserve->reservation_time == '4:00pm' ? 'selected' : '' ?>>4:00 pm</option>
+                            <option value="4:30pm" <?= isset($reserve) && $reserve->reservation_time == '4:30pm' ? 'selected' : '' ?>>4:30 pm</option>
+                            <option value="5:00pm" <?= isset($reserve) && $reserve->reservation_time == '5:00pm' ? 'selected' : '' ?>>5:00 pm</option>
+                            <option value="5:30pm" <?= isset($reserve) && $reserve->reservation_time == '5:30pm' ? 'selected' : '' ?>>5:30 pm</option>
+                            <option value="6:00pm" <?= isset($reserve) && $reserve->reservation_time == '6:00pm' ? 'selected' : '' ?>>6:00 pm</option>
+                            <option value="6:30pm" <?= isset($reserve) && $reserve->reservation_time == '6:30pm' ? 'selected' : '' ?>>6:30 pm</option>
+                            <option value="7:00pm" <?= isset($reserve) && $reserve->reservation_time == '7:00pm' ? 'selected' : '' ?>>7:00 pm</option>
+                            <option value="7:30pm" <?= isset($reserve) && $reserve->reservation_time == '7:30pm' ? 'selected' : '' ?>>7:30 pm</option>
+                            <option value="8:00pm" <?= isset($reserve) && $reserve->reservation_time == '8:00pm' ? 'selected' : '' ?>>8:00 pm</option>
+                            <option value="8:30pm" <?= isset($reserve) && $reserve->reservation_time == '8:30pm' ? 'selected' : '' ?>>8:30 pm</option>
+                            <option value="9:00pm" <?= isset($reserve) && $reserve->reservation_time == '9:00pm' ? 'selected' : '' ?>>9:00 pm</option>
                         </select>
                     </div>
                     <div class=" form-group col-12">
@@ -104,7 +104,7 @@ if (isset($reserve)) {
 <?php Utils::DeleteSession('completed'); ?>
 <script>
     $('#datepicker').datepicker({
-        format: 'dd \\ mm \\ yyyy',
+        format: 'yyyy-mm-dd',
         todayHighlight: true,
         autoclose: true,
         container: '#box',

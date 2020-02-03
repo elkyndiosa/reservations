@@ -140,6 +140,7 @@ class reserve {
             $sql .= " AND id_site = '{$site_id} '";
         }
         $sql .= " ORDER BY id DESC ;";
+//        var_dump($sql);die();
         $reservations = $this->db->query($sql);
         return $reservations;
     }
