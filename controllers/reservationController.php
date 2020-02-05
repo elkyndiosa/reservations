@@ -14,7 +14,7 @@ class reservationController {
         if (isset($_GET['id'])) {
             $id = $_GET['id'];
         }
-        if ( empty($id) && isset($_SESSION['admin']) || isset($_SESSION['employee'])) {
+        if ( empty($id) && (isset($_SESSION['admin']) || isset($_SESSION['employee']))) {
             header('location: ' . base_url . 'user/allUSer');
         }elseif (empty($id) && !isset($_SESSION['admin']) && !isset($_SESSION['employee']) ){
             $id = $_SESSION['user']->id;
@@ -197,7 +197,7 @@ class reservationController {
                 $update = $reserve->update();
                 if ($update) {
                     $_SESSION['completed'] = 'Se modifico exitosamente';
-                    header('location: ' . base_url . 'reservation/reservation');
+                    header('location: ' . base_url . 'reservation/myreservations');
                 } else {
                     $_SESSION['error']['general'] = 'Error al registrar reserva';
                     header('location: ' . base_url . 'reservation/update&id='.$id_reservations);
