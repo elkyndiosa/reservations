@@ -5,6 +5,7 @@ require_once 'models/user.php';
 class userController {
 
     function signin() {
+        $dir = base_url.'user/save';
         require_once 'views/users/signin.php';
     }
 
@@ -16,6 +17,7 @@ class userController {
             $phone = isset($_POST['phone']) ? $_POST['phone'] : FALSE;
             $password = isset($_POST['password']) ? $_POST['password'] : FALSE;
             $rol = isset($_POST['rol']) ? $_POST['rol'] : 'user';
+    //        var_dump($_post); die();
 
 //            var_dump($_FILES, $_POST); die();s
             //validamos datos
@@ -79,7 +81,7 @@ class userController {
                 }
                 $user->saveUser();
                 $_SESSION['completed'] = 'Su registro ha sido completado';
-                header('location: ' . base_url . 'user/allUser');
+                header('location: ' . base_url);
             } else {
                 $_SESSION['error'] = $errors;
                 header('location: ' . base_url . 'user/update&new');
@@ -187,7 +189,7 @@ class userController {
         
         if (isset($_POST)) {
             $id = isset($_POST['id']) ? $_POST['id'] : FALSE;
-            $name = isset($_POST['name']) ? $_POST['name'] : FALSE;
+            $name = isset($_POST['name']) ? ucwords($_POST['name']) : FALSE;
             $email = isset($_POST['email']) ? $_POST['email'] : FALSE;
             $phone = isset($_POST['phone']) ? $_POST['phone'] : FALSE;
             $rol = isset($_POST['rol']) ? $_POST['rol'] : NULL;
@@ -286,6 +288,7 @@ class userController {
         $users = TRUE;
         $users = new user();
         $users = $users->allUsers();
+        $actUsers = true;
         require_once 'views/users/users.php';
     }
 
@@ -304,6 +307,7 @@ class userController {
         $employee = TRUE;
         $users = new user();
         $users = $users->allEmplyee();
+        $actEmpl = true;
         require_once 'views/users/users.php';
     }
 
