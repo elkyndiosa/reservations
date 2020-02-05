@@ -1,5 +1,5 @@
 <div class="container-fluid my-5 pt-3 px-1 w-100">
-    <div class="row">
+    <div class="row mt-4">
         <div class="col-6 d-flex justify-content-start">
             <?php if (isset($day)): ?>
                 <?php
@@ -38,7 +38,7 @@
         <?php endif; ?>
     </div>
 
-    <div class="row justify-content-around w-100 m-0 border-top mt-3">
+    <div class="row justify-content-around w-100 m-0 border-top my-4 ">
         <?php if ($reservations->num_rows == 0): ?>
             <h1>No hay datos para mostrar :(</h1>
 
@@ -55,12 +55,12 @@
             <div class="card col-11 col-md-5 col-xl-4 rounded w-100 m-1 mt-3" >
                 <div class="card-body p-0 py-1 w-100">
                     <div class="row ">
-                        <div class="col-3 border-right pr-0 d-flex align-items-center flex-wrap">
-                            <p class="card-text m-0"> <?= substr($reserve->reservation_time, 0, 7) ?> </p>
-                            <p class="card-text m-0"><?= $site->name ?> </p>
+                        <div class="col-3 border-right p-0 d-flex align-items-center flex-wrap text-wrap">
+                            <p class="card-text text-wrap m-0"> <?= substr($reserve->reservation_time, 0, 7) ?> </p>
+                            <p class="card-text m-0 text-wrap"><?= $site->name ?> </p>
                         </div>
                         <div class="col-9 pr-0">
-                            <a href="<?= base_url ?>user/profile&id=<?= $user->id ?>" class="btn text-light card-text m-0 p-0 font-weight-bold"><?= $user->name ?></a> 
+                            <a href="<?= base_url ?>user/profile&id=<?= $user->id ?>" class="btn text-light card-text m-0 p-0 font-weight-bold text-left"><?= $user->name ?></a> 
                             <p class="card-text m-0">tel: <?= $user->phone ?></p>
                             <p class="card-text m-0"> <?= $user->email ?></p>
                             <p class="card-text m-0"><?= $reserve->people ?> personas | <?= $reserve->reason ?></p>
@@ -74,7 +74,7 @@
                         </div>
                         <?php if ($reserve->status !== 'active'): ?>
                             <div class="position-absolute rounded" style= "right:5px;top:10px;">
-                                <span class="bg-danger p-1 rounded" ><?= $reserve->status ?></span>
+                                <span class="bg-danger p-1 rounded " style="opacity: .7"><?= $reserve->status ?></span>
                             </div>
                         <?php endif; ?>
                     </div>
