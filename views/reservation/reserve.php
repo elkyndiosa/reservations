@@ -86,7 +86,7 @@ if (isset($reserve)) {
                     </div>
 
                     <div class="d-flex justify-content-center col-12">
-                        <button type="submit" class="btn btn-warning col-4 text-center " ><?= $submit ?></button>
+                        <button type="submit" class="btn btn-warning col-8 col-sm-4 text-center " ><?= $submit ?></button>
                     </div>
                 </form>
             </div>
