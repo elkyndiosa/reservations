@@ -1,6 +1,11 @@
 <div class="container-fluid my-5 pt-3 px-1 w-100">
+<<<<<<< HEAD
     <div class="row w-100 mt-4 mx-0 d-flex justify-content-center">
         <div class="col-12 col-md-6 d-flex justify-content-center justify-content-md-start">
+=======
+    <div class="row mt-4">
+        <div class="col-6 d-flex justify-content-start">
+>>>>>>> b182c47a3cc28c2e36ebaf1bff11859397ddc290
             <?php if (isset($day)): ?>
                 <?php
                 if ($day == date('Y-m-d')) {
@@ -87,3 +92,16 @@
 <?php
 Utils::DeleteSession('completed');
 ?>
+<<<<<<< HEAD
+=======
+<script>
+    $('#datepicker').datepicker({
+        format: 'yyyy-mm-dd',
+        todayHighlight: true,
+        autoclose: true,
+        container: '#box',
+        orientation: 'top right'
+
+    }).datepicker('update', new Date());
+</script>
+>>>>>>> b182c47a3cc28c2e36ebaf1bff11859397ddc290

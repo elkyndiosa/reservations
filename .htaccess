@@ -1,7 +1,11 @@
 <IfModule mod_rewrite.c >
 # Activar rewrite
 RewriteEngine on
+<<<<<<< HEAD
 ErrorDocument 404 http://gustavodiosa.com/error/index
+=======
+ErrorDocument 404 https://reservationslive.herokuapp.com/error
+>>>>>>> b182c47a3cc28c2e36ebaf1bff11859397ddc290
 
 RewriteCond %{SCRIPT_FILENAME} !-d
 RewriteCond %{SCRIPT_FILENAME} !-f
