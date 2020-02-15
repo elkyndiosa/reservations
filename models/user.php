@@ -53,19 +53,19 @@ class user {
     }
 
     function setName($name) {
-        $this->name = $this->db->real_escape_string($name);
+        $this->name =  trim(htmlspecialchars($this->db->real_escape_string($name)));
     }
 
     function setEmail($email) {
-        $this->email = $this->db->real_escape_string($email);
+        $this->email =  trim(htmlspecialchars($this->db->real_escape_string($email)));
     }
 
     function setPhone($phone) {
-        $this->phone = $this->db->real_escape_string($phone);
+        $this->phone =  trim(htmlspecialchars($this->db->real_escape_string($phone)));
     }
 
     function setPassword($password) {
-        $this->password = $this->db->real_escape_string($password);
+        $this->password = trim($this->db->real_escape_string($password));
     }
 
     function setRol($rol) {
@@ -73,7 +73,7 @@ class user {
     }
 
     function setPhoto($photo) {
-        $this->photo = $this->db->real_escape_string($photo);
+        $this->photo =  trim(htmlspecialchars($this->db->real_escape_string($photo)));
     }
 
     function setRegistration_date($registration_date) {

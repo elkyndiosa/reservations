@@ -8,6 +8,7 @@ require_once 'config/db.php';
 require_once 'views/layout/header.php';
 
 function show_error() {
+    require_once 'controllers/errorController.php';
     $error = new ErrorController;
     $error->index();
 }

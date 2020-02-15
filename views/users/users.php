@@ -5,9 +5,9 @@
 <?php endif; ?>
 <div class="d-flex justify-content-around align-items-center flex-wrap mt-5 mb-3 ">
     <div class="col-12 col-md-6 d-flex justify-content-center justify-content-md-start flex-wrap">
-        <a href="<?= base_url ?>user/allEmployee" class="btn btn-warning w-auto mx-1">Empleados</a>
-        <a href="<?= base_url ?>user/allUser" class="btn btn-warning w-auto mx-1">Clientes</a>
-        <a href="<?= base_url ?>user/update&new" class="btn btn-warning w-auto  mx-1">Nuevo usuario </a>
+        <a href="<?= base_url ?>user/allEmployee" class="btn btn-warning w-auto mx-1 <?= isset($actEmpl) ? 'disabled' : '';?>" >Empleados</a>
+        <a href="<?= base_url ?>user/allUser" class="btn btn-warning w-auto mx-1 <?= isset($actUsers) ? 'disabled' : '';?>">Clientes</a>
+        <a href="<?= base_url ?>user/update&new" class="btn btn-warning w-auto  mx-1 mt-1 mt-sm-0">Nuevo usuario </a>
     </div>
     <div class="col-12 col-md-4 d-flex justify-content-center justify-content-md-end mt-2 mt-md-0">
         
@@ -18,25 +18,25 @@
 
     </div>
 </div>
-<div class="row w-100 d-flex justify-content-center m-0">
+<div class="row w-100 d-flex justify-content-center m-0 mb-5">
     <?php while ($user = $users->fetch_object()): ?>
-        <div class="col-11 col-lg-5 d-flex justify-content-around bg-info rounded py-2 mx-4 my-1 w-100">
+        <div class="col-11 col-lg-5 d-flex justify-content-around bg-info rounded py-2 mx-4 my-1 w-100" >
             <div class="col-2 d-flex justify-content-center align-items-center">
                 <?php if ($user->photo == NULL): ?>
-                    <img class="rounded-circle" src="<?= base_url ?>assets/img/avatar-man.jpg" alt="" width="50">
+                    <img class="rounded-circle" src="<?= base_url ?>assets/img/avatar-man.jpg" alt="" width="50" height="50">
                 <?php else : ?>
-                    <img class="rounded-circle" src="<?= base_url ?>uploads/images/<?= $user->photo ?>" alt="" width="50">
+                    <img class="rounded-circle" src="<?= base_url ?>uploads/images/<?= $user->photo ?>" alt="" width="50" height="50">
                 <?php endif; ?>
             </div>
-            <div class="col-7">
-                <div class="col-12">
-                    <a href="<?= base_url ?>user/profile&id=<?= $user->id ?>" class="btn text-light card-text m-0 p-0 font-weight-bold"><?= substr($user->name, 0, 30) ?></a>
+            <div class="col-7 p-0">
+                <div class="col-12 p-0">
+                    <a href="<?= base_url ?>user/profile&id=<?= $user->id ?>" class="btn text-light card-text m-0 p-0 font-weight-bold text-left"><?= substr($user->name, 0, 30) ?></a>
                 </div>
-                <div class="col-12">
+                <div class="col-12 p-0">
                     <p class="m-0"><?= $user->email ?></p>
                 </div>
             </div>
-            <div class="col-2 d-flex justify-content-center align-items-center">
+            <div class="col-2 d-flex justify-content-center align-items-start align-items-sm-center">
                 <?php if (!isset($employee)): ?>
                     <a href="<?= base_url ?>reservation/reserve&id=<?= $user->id ?>" class="btn btn-warning w-auto btn-sm mr-1">Reservar</a>
                 <?php endif; ?>

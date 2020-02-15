@@ -2,7 +2,7 @@
 <html lang="es">
     <head>
         <meta charset="UTF-8">
-        <title>Reservation</title>
+        <title>Reservations</title>
         <link rel="stylesheet" href="<?= base_url ?>assets/css/style2.css">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -19,35 +19,36 @@
     </head> 
     <body class="bg-dark">
 
-        <nav class="navbar navbar-expand-lg bg-info navbar-dark ">
+        <nav class="navbar navbar-expand-lg bg-info navbar-dark fixed-top">
             <?php if (isset($_SESSION['user'])): ?>
             <p class="navbar-brand text-left" ><?=  substr($_SESSION['user']->name, 0, 20)?></p>
             <?php else: ?>
                 <h3 class="navbar-brand" >Ingresa tus datos</h3>
             <?php endif; ?>
+            <?php if (isset($_SESSION['user'])): ?>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse justify-content-end mr-4" id="collapsibleNavbar">
-                <?php if (isset($_SESSION['user'])): ?>
-                    <ul class="navbar-nav ">
+                
+                    <ul class="navbar-nav  ">
                         <!--MENU FOR USERS - EMPLOYEE - ADMIN-->
                         <li class="nav-item">
-                            <a class="nav-link mx-4 mx-lg-0" href="<?= base_url ?>reservation/reserve">Reservar</a>
+                            <a class="nav-link mx-4 mx-lg-0 text-light" href="<?= base_url ?>reservation/reserve">Reservar</a>
                         </li> 
                         <li class="nav-item">
-                            <a class="nav-link mx-4 mx-lg-0" href="<?= base_url ?>reservation/myreservations">Mis reservas</a>
+                            <a class="nav-link mx-4 mx-lg-0 text-light" href="<?= base_url ?>reservation/myreservations">Mis reservas</a>
                         </li>
                         <!--MENU FOR EMPLOYEE AND ADMIN-->
                         <?php if (isset($_SESSION['employee']) || isset($_SESSION['admin'])): ?>
                             <li class="nav-item">
-                                <a class="nav-link mx-4 mx-lg-0" href="<?= base_url ?>reservation/reservation">Gestionar reservas</a>
+                                <a class="nav-link mx-4 mx-lg-0 text-light" href="<?= base_url ?>reservation/reservation">Gestionar reservas</a>
                             </li>
                         <?php endif; ?>
                         <!--MENU FOR ADMIN-->
                         <?php if (isset($_SESSION['admin'])): ?>
                             <li class="nav-item">
-                                <a class="nav-link mx-4 mx-lg-0" href="<?= base_url ?>user/allUser">Gestionar Usuarios</a>
+                                <a class="nav-link mx-4 mx-lg-0 text-light" href="<?= base_url ?>user/allUser">Gestionar Usuarios</a>
                             </li> 
                             <!--                            <li class="nav-item">
                                                             <a class="nav-link mx-4 mx-lg-0" href="reservar.php">Gestion de usuarios</a>
@@ -58,10 +59,10 @@
                         <?php endif; ?>
                         <!--MENU FOR ALL-->
                         <li class="nav-item">
-                            <a class="nav-link mx-4 mx-lg-0" href="<?= base_url ?>user/profile">Mi perfil</a>
+                            <a class="nav-link mx-4 mx-lg-0 text-light" href="<?= base_url ?>user/profile">Mi perfil</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link mx-4 mx-lg-0" href="<?= base_url ?>user/closeSession">Salir</a>
+                            <a class="nav-link mx-4 mx-lg-0 text-light" href="<?= base_url ?>user/closeSession">Salir</a>
                         </li>
                         <!--                        <li class="nav-item">
                                                     <form class="form-inline d-flex justify-content-around mt-3 mt-md-0" action="buscar.php" method="post">
@@ -69,7 +70,8 @@
                                                         <button class="btn btn-success text-center  col-5" type="submit">Buscar</button>
                                                     </form>
                                                 </li>-->
-                    <?php endif; ?>
+                  
                 </ul>
             </div>
+              <?php endif; ?>
         </nav>

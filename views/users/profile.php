@@ -1,13 +1,13 @@
 <div class="row d-flex justify-content-center mt-5 w-100">
-    <div class="card col-10 col-sm-6 col-lg-4 d-flex justify-content-around pt-3 mt-5">
+    <div class="card col-10 col-sm-6 col-lg-4 d-flex justify-content-around pt-3 my-5">
         <?php if (!isset($id)): ?>
             <a href="<?= base_url ?>user/updatePhoto" class="position-relative text-right text-light ">Cambiar foto</a>
         <?php endif; ?>
 
         <?php if (empty($photo)): ?>
-            <img class="rounded-circle m-auto " src="<?= base_url ?>assets/img/avatar-man.jpg?>" alt="" width="200">
+            <img class="rounded-circle m-auto" src="<?= base_url ?>assets/img/avatar-man.jpg?>" alt="" width="150" height="150">
         <?php else: ?>
-            <img class="rounded-circle m-auto " src="<?= base_url ?>uploads/images/<?= $photo ?>" alt="" width="200">
+            <img class="rounded-circle m-auto " src="<?= base_url ?>uploads/images/<?= $photo ?>" alt="" width="150" height="150">
         <?php endif; ?>
         <div class="card-body">
             <h5 class="card-title w-100 text-center"><?= $user->name ?></h5>

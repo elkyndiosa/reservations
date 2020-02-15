@@ -85,23 +85,23 @@ class reserve {
     }
 
     function setPeople($people) {
-        $this->people = $this->db->real_escape_string($people);
+        $this->people = htmlspecialchars($this->db->real_escape_string($people));
     }
 
     function setReason($reason) {
-        $this->reason =  $this->db->real_escape_string($reason);
+        $this->reason =  htmlspecialchars($this->db->real_escape_string($reason));
     }
 
     function setReservation_date($reservation_date) {
-        $this->reservation_date =  $this->db->real_escape_string($reservation_date);
+        $this->reservation_date =  htmlspecialchars($this->db->real_escape_string($reservation_date));
     }
 
     function setReservation_time($reservation_time) {
-        $this->reservation_time =  $this->db->real_escape_string($reservation_time);
+        $this->reservation_time =   htmlspecialchars($this->db->real_escape_string($reservation_time));
     }
 
     function setNote($note) {
-        $this->note =  $this->db->real_escape_string($note);
+        $this->note =   trim(htmlspecialchars($this->db->real_escape_string($note)));
     }
 
     function setStatus($status) {

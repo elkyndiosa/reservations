@@ -31,7 +31,13 @@ class Utils {
             header("location: " . base_url . 'reservation/reserve');
         }
     }
-
+    public static function notIssetSession() {
+            if (!isset($_SESSION['user'])) {
+                header("location: " . base_url);
+            } else {
+                return TRUE;
+            }
+        }
     public static function issetSession() {
         if (isset($_SESSION['user'])) {
             header('location: ' . base_url . 'reservation/reserve');
@@ -61,7 +67,7 @@ class Utils {
                             $("body").overhang({
                             type: "error",
                             message: "' . $message . '",
-                            duration: 4,
+                            duration: 2,
                             upper: true
                             });
                         });
@@ -79,7 +85,7 @@ class Utils {
                             $("body").overhang({
                             type: "success",
                             message: "' . $message . '",
-                            duration: 4,
+                            duration: 2,
                             upper: true
                             });
                         });

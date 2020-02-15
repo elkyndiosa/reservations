@@ -19,7 +19,7 @@ class site{
     }
 
     function setName($name) {
-        $this->name = $name;
+        $this->name =  trim(htmlspecialchars($name));
     }
     function getSites(){
         $sql = "SELECT * FROM site ;";

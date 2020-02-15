@@ -37,7 +37,7 @@
                     <?php endif; ?>
                     <?php if (!isset($_SESSION['user'])): ?>
                         <div class="form-group col-12">
-                            <label for="password">COntraseña:</label>
+                            <label for="password">Contraseña:</label>
                             <input type="password" class="form-control" id="password" placeholder="Ingrese contraseña" name="password" required value="">
                         </div>
                         <div class="form-group col-12">

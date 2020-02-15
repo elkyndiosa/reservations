@@ -10,11 +10,12 @@ class reservationController {
     }
 
     public function reserve() {
+        Utils::notIssetSession();
         $id = NULL;
         if (isset($_GET['id'])) {
             $id = $_GET['id'];
         }
-        if ( empty($id) && isset($_SESSION['admin']) || isset($_SESSION['employee'])) {
+        if ( empty($id) && (isset($_SESSION['admin']) || isset($_SESSION['employee']))) {
             header('location: ' . base_url . 'user/allUSer');
         }elseif (empty($id) && !isset($_SESSION['admin']) && !isset($_SESSION['employee']) ){
             $id = $_SESSION['user']->id;
@@ -44,6 +45,7 @@ class reservationController {
     }
 
     public function saveReserve() {
+        Utils::notIssetSession();
         if (isset($_POST)) {
             $id_user = isset($_POST['id']) ? $_POST['id'] : FALSE;
             $id_site = isset($_POST['site']) ? $_POST['site'] : FALSE;
@@ -121,6 +123,7 @@ class reservationController {
     }
 
     public function canceled() {
+        Utils::notIssetSession();
         if (isset($_GET['id'])) {
             $id = $_GET['id'];
             $reserve = new reserve();
@@ -132,7 +135,7 @@ class reservationController {
     }
 
     public function update() {
-        
+        Utils::notIssetSession();
         if (isset($_GET['id'])) {
             $id = $_GET['id'];
             $reserve = new reserve();
@@ -143,6 +146,7 @@ class reservationController {
     }
 
     public function saveUpdate() {
+        Utils::notIssetSession();
         if (isset($_POST)) {
             $id_reservations = isset($_POST['id']) ? $_POST['id'] : FALSE;
             $id_site = isset($_POST['site']) ? $_POST['site'] : FALSE;
@@ -197,7 +201,7 @@ class reservationController {
                 $update = $reserve->update();
                 if ($update) {
                     $_SESSION['completed'] = 'Se modifico exitosamente';
-                    header('location: ' . base_url . 'reservation/reservation');
+                    header('location: ' . base_url . 'reservation/myreservations');
                 } else {
                     $_SESSION['error']['general'] = 'Error al registrar reserva';
                     header('location: ' . base_url . 'reservation/update&id='.$id_reservations);
@@ -211,6 +215,7 @@ class reservationController {
         }
     }
     function myreservations() {
+        Utils::notIssetSession();
         $id_user = $_SESSION['user']->id;
         $reserve = new reserve();
         $reserve->setId_user($id_user);

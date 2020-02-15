@@ -1,6 +1,6 @@
 <div class="container formulario mt-5 d-flex align-items-center justify-content-center">
     <div class="d-flex justify-content-center row w-100">
-        <div class="card m-4 col-11 col-md-8 col-lg-5">
+        <div class="card m-2 col-12 col-md-8 col-lg-5">
             <div class="card-header">
                 <h3>Registrase</h3>
 
@@ -27,13 +27,12 @@
                     </div>
                 </form>
             </div>
-            <div class="card-footer">
-                <div class="d-flex justify-content-center links">
-                    ¿No tienes cuenta? <a href="<?= base_url ?>user/signin"> Registrate</a>
+            <div class="card-footer p-0">
+                <div class="d-flex justify-content-between">
+                    <p class="">¿No tienes cuenta?  </p> 
+                    <a href="<?= base_url ?>user/signin"> Registrate</a>
                 </div>
-                <div class="d-flex justify-content-center">
-                    <a href="#">¿Olvidaste tu contraseña?</a>
-                </div>
+         
             </div>
         </div>
     </div>

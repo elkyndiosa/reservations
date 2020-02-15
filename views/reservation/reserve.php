@@ -52,7 +52,7 @@ if (isset($reserve)) {
                     </div>
                     <div class="form-group col-12 date  col-md-6 " id="box" >
                         <label for="datepicker">Dia de reserva:</label>
-                        <input id="datepicker" type="text" class="form-control" value="<?= date('Y-m-d') ?>" name="date_reserve" required>
+                        <input id="datepicker" type="date" class="form-control" value="<?= date('Y-m-d') ?>" name="date_reserve" required>
                     </div>
                     <div class="form-group col-12  col-md-6">
                         <label for="time_reserve">Hora de reserva:</label>
@@ -86,7 +86,7 @@ if (isset($reserve)) {
                     </div>
 
                     <div class="d-flex justify-content-center col-12">
-                        <button type="submit" class="btn btn-warning col-4 text-center " ><?= $submit ?></button>
+                        <button type="submit" class="btn btn-warning col-8 col-sm-4 text-center " ><?= $submit ?></button>
                     </div>
                 </form>
             </div>
@@ -102,14 +102,3 @@ if (isset($reserve)) {
 </div>
 <?php Utils::DeleteSession('error'); ?>
 <?php Utils::DeleteSession('completed'); ?>
-<script>
-    $('#datepicker').datepicker({
-        format: 'yyyy-mm-dd',
-        todayHighlight: true,
-        autoclose: true,
-        container: '#box',
-        orientation: 'top right'
-
-    }).datepicker('update', new Date());
-</script>
-

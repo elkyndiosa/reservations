@@ -43,7 +43,7 @@ table{
     height: 70%;
     margin-top: auto;
     margin-bottom: auto;
-    background-color: rgba(0,0,0,0.5) !important;
+    background-color: rgba(0,0,0, 0.8) !important;
 }
 .btn-warning:hover{
     background: white !important;
